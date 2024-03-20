@@ -12,16 +12,19 @@ function crearCabecera() {
   let celdah2 = document.createElement("th");
   let celdah3 = document.createElement("th");
   let celdah4 = document.createElement("th");
+  let celdah5 = document.createElement("th");
 
   celdah1.append("Título"); //metemos lo que queremos que saque
   celdah2.append("Autor");
   celdah3.append("Año publicacion");
   celdah4.append("Género");
+  celdah5.append("Ver");
 
   head.append(celdah1); //metemos las celdas en la fila
   head.append(celdah2);
   head.append(celdah3);
   head.append(celdah4);
+  head.append(celdah5);
 
   theader.append(head); //metemos la fila en el theader
   tabla.append(theader);//metemos el theader en la tabla
@@ -31,8 +34,9 @@ function crearCabecera() {
 }
 
 function elegiranio() {
-  let label = document.getElementById("label");//crear label
+  let label = document.createElement("label");//crear label
   label.append("Escribe un numero"); //contenido label
+  document.getElementById("h1").after(label);
   let boton = document.createElement("button");//crear boton
   boton.append("Enviar");//contenido boton
   document.getElementById("libros").before(boton);//crear el boton antes de la tabla
@@ -62,6 +66,13 @@ function tratarDatos(datos) {
       let celda2 = document.createElement("td");
       let celda3 = document.createElement("td");
       let celda4 = document.createElement("td");
+      let celda5=document.createElement("td")
+      let boton=document.createElement("button")
+      boton.id="boton"
+      boton.append("Ver")
+      boton.addEventListener("click", crearImagen);
+      celda5.append(boton)
+    
       celda1.append(libro.titulo); //en la celda 1 poner el titulo del libro
       celda2.append(libro.autor); //en la celda 2 poner el autor del libro
       celda3.append(libro.anio_publicacion); //en la celda 3 poner el año de publicacion del libro
@@ -70,8 +81,19 @@ function tratarDatos(datos) {
       fila.append(celda2);
       fila.append(celda3);
       fila.append(celda4);
+      fila.append(celda5);
 
       tbody.append(fila); //añadir fila al tbody
     }
   });
+}
+
+function crearImagen(){
+  let divImagen=document.createElement("div")
+  divImagen.id="divImagen"
+  let imagen=document.createElement("img")
+  imagen.id="imagen"
+  if (libro.titulo == "Cien años de soledad"){
+    imagen.src="100anios.png"
+  }
 }
