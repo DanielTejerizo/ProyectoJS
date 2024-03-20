@@ -10,7 +10,7 @@ function elegiranio(){
 }
 
 function conseguirDatos(){
-    fetch("libros.json") //fetch solo funciona con https
+    fetch("/json/libros.json") //fetch solo funciona con https
     .then(response=>response.json())
     .then(datos=>{
         tratarDatos(datos)
