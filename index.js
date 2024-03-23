@@ -44,7 +44,7 @@ function elegiranio() {
 }
 
 function conseguirDatos() {
-  fetch("libros.json") //fetch solo funciona con https
+  fetch("json/libros.json") //fetch solo funciona con https
     .then((response) => response.json())
     .then((datos) => {
       tratarDatos(datos);
@@ -70,7 +70,9 @@ function tratarDatos(datos) {
       let boton=document.createElement("button")
       boton.id="boton"
       boton.append("Ver")
-      boton.addEventListener("click", crearImagen);
+      boton.addEventListener("click", function(){
+        crearImagen(libro); //imagen del libro
+      });
       celda5.append(boton)
     
       celda1.append(libro.titulo); //en la celda 1 poner el titulo del libro
@@ -88,12 +90,35 @@ function tratarDatos(datos) {
   });
 }
 
-function crearImagen(){
-  let divImagen=document.createElement("div")
-  divImagen.id="divImagen"
-  let imagen=document.createElement("img")
-  imagen.id="imagen"
-  if (libro.titulo == "Cien años de soledad"){
-    imagen.src="100anios.png"
+function crearImagen(libro){ //Funcion para sacar imagen debajo
+  let divImagen=document.createElement("div") //Crear el div de la imagen
+  divImagen.id="divImagen" //id
+  
+  // Limpiar
+  divImagen.innerHTML = "";
+  
+  let imagen=document.createElement("img") //Crear elemento imagen
+  imagen.id="imagen" //id
+
+  //array
+  let imagenesLibros = [
+    {titulo: "Cien años de soledad", imagenSrc: "Img/100anios.png", imagenAlt: "100 años de soledad"},
+    {titulo: "To Kill a Mockingbird", imagenSrc: "Img/ToKillAMockinbird.png", imagenAlt: "To Kill A Mockinbird"}
+  ]
+
+  let buscarImagen=imagenesLibros.find(item=>item.titulo===libro.titulo)
+
+  if(buscarImagen){
+    imagen.src=buscarImagen.imagenSrc
+    imagen.alt=buscarImagen.imagenAlt
+    divImagen.append(imagen)
+  }else{
+    let texto=document.createElement("p")
+    texto.append("Imagen no encontrada")
+    divImagen.append(texto)
   }
+
+  let contenedor=document.getElementById("libros")
+  contenedor.parentNode.insertBefore(divImagen, contenedor.nextSibling);
 }
+
