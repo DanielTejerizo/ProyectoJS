@@ -103,7 +103,16 @@ function crearImagen(libro){ //Funcion para sacar imagen debajo
   //array
   let imagenesLibros = [
     {titulo: "Cien años de soledad", imagenSrc: "Img/100anios.png", imagenAlt: "100 años de soledad"},
-    {titulo: "To Kill a Mockingbird", imagenSrc: "Img/ToKillAMockinbird.png", imagenAlt: "To Kill A Mockinbird"}
+    {titulo: "To Kill a Mockingbird", imagenSrc: "Img/ToKillAMockinbird.png", imagenAlt: "To Kill A Mockinbird"},
+    {titulo: "1984", imagenSrc: "Img/1984.png", imagenAlt: "1984"},
+    {titulo: "The Great Gatsby", imagenSrc: "Img/The Great Gatsby.png", imagenAlt: "The Great Gatsby"},
+    {titulo: "The Catcher in the Rye", imagenSrc: "Img/The Catcher in the Rye.png", imagenAlt: "The Catcher in the Rye"},
+    {titulo: "Brave New World", imagenSrc: "Img/Brave New World.png", imagenAlt: "Brave New World"},
+    {titulo: "The Hobbit", imagenSrc: "Img/The Hobbit.png", imagenAlt: "The Hobbit"},
+    {titulo: "The Lord of the Rings", imagenSrc: "Img/The Lord of the Rings.png", imagenAlt: "The Lord of the Rings"},
+    {titulo: "One Hundred Years of Solitude", imagenSrc: "Img/One Hundred Years of Solitude.png", imagenAlt: "One Hundred Years of Solitude"},
+    {titulo: "Pride and Prejudice", imagenSrc: "Img/Pride and Prejudice.png", imagenAlt: "Pride and Prejudice"},
+    {titulo: "The Odyssey", imagenSrc: "Img/The Odyssey.png", imagenAlt: "The Odyssey"}
   ]
 
   let buscarImagen=imagenesLibros.find(item=>item.titulo===libro.titulo)
