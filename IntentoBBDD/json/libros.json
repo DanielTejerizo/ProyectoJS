@@ -1,0 +1,82 @@
+{
+  "libros": [
+    {
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "anio_publicacion": 1967,
+      "genero": "Realismo mágico",
+      "imagen": "Img/100anios.png"
+    },
+    {
+      "titulo": "To Kill a Mockingbird",
+      "autor": "Harper Lee",
+      "anio_publicacion": 1960,
+      "genero": "Novela",
+      "imagen": "Img/ToKillAMockinbird.png"
+    },
+    {
+      "titulo": "1984",
+      "autor": "George Orwell",
+      "anio_publicacion": 1949,
+      "genero": "Distopía",
+      "imagen": "Img/1984.png"
+    },
+    {
+      "titulo": "The Great Gatsby",
+      "autor": "F. Scott Fitzgerald",
+      "anio_publicacion": 1925,
+      "genero": "Ficción",
+      "imagen": "Img/The Great Gatsby.png"
+    },
+    {
+      "titulo": "The Catcher in the Rye",
+      "autor": "J.D. Salinger",
+      "anio_publicacion": 1951,
+      "genero": "Novela",
+      "imagen": "Img/The Catcher in the Rye.png"
+    },
+    {
+      "titulo": "Brave New World",
+      "autor": "Aldous Huxley",
+      "anio_publicacion": 1932,
+      "genero": "Ciencia ficción",
+      "imagen": "Img/Brave New World.png"
+    },
+    {
+      "titulo": "The Hobbit",
+      "autor": "J.R.R. Tolkien",
+      "anio_publicacion": 1937,
+      "genero": "Fantasía",
+      "imagen": "Img/The Hobbit.png"
+    },
+    {
+      "titulo": "The Lord of the Rings",
+      "autor": "J.R.R. Tolkien",
+      "anio_publicacion": 1954,
+      "genero": "Fantasía",
+      "imagen": "Img/The Lord of the Rings.png"
+    },
+    {
+      "titulo": "One Hundred Years of Solitude",
+      "autor": "Gabriel García Márquez",
+      "anio_publicacion": 1967,
+      "genero": "Realismo mágico",
+      "imagen": "Img/One Hundred Years of Solitude.png"
+    },
+    {
+      "titulo": "Pride and Prejudice",
+      "autor": "Jane Austen",
+      "anio_publicacion": 1813,
+      "genero": "Novela romántica",
+      "imagen": "Img/Pride and Prejudice.png"
+    },
+    {
+      "titulo": "The Odyssey",
+      "autor": "Homer",
+      "anio_publicacion": 1800,
+      "genero": "Épico",
+      "imagen": "Img/The Odyssey.png"
+    }
+  ]
+}
+    
