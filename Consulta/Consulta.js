@@ -34,34 +34,12 @@ function crearCabecera() {
 }
 
 function elegir() {
-  let labelAnio = document.createElement("label"); //crear label
-  labelAnio.append("Elige un año"); //contenido label
-  document.getElementById("h1").after(labelAnio);
-  let botonAnio = document.createElement("button"); //crear boton
-  botonAnio.append("Enviar"); //contenido boton
-
-  let labelTitulo = document.createElement("label"); //crear label
-  labelTitulo.append("Elige un titulo"); //contenido label
-  document.getElementById("h1").after(labelTitulo);
-  let botonTitulo = document.createElement("button"); //crear boton
-  botonTitulo.append("Enviar"); //contenido boton
-
-  let labelAutor = document.createElement("label"); //crear label
-  labelAutor.append("Elige un autor"); //contenido label
-  document.getElementById("h1").after(labelAutor);
-  let botonAutor = document.createElement("button"); //crear boton
-  botonAutor.append("Enviar"); //contenido boton
-
-  let labelGenero = document.createElement("label"); //crear label
-  labelGenero.append("Elige un genero"); //contenido label
-  document.getElementById("h1").after(labelGenero);
-  let botonGenero = document.createElement("button"); //crear boton
-  botonGenero.append("Enviar"); //contenido boton
-
-  document.getElementById("libros").before(botonAnio); //crear el boton antes de la tabla
-  document.getElementById("libros").before(botonTitulo); //crear el boton antes de la tabla
-  document.getElementById("libros").before(botonAutor); //crear el boton antes de la tabla
-  document.getElementById("libros").before(botonGenero); //crear el boton antes de la tabla
+  
+  let botonTitulo=document.getElementById("botonTitulo");
+  let botonAutor=document.getElementById("botonAutor");
+  let botonAnio=document.getElementById("botonAnio");
+  let botonGenero=document.getElementById("botonGenero");
+ 
   botonAnio.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonTitulo.addEventListener("click", conseguirDatos); //evento para que al hacer click
   botonAutor.addEventListener("click", conseguirDatos); //evento para que al hacer click
@@ -92,88 +70,12 @@ function tratarDatos(datos) {
 
   datos.libros.forEach((libro) => {
     //forEach
-    if (libro.anio_publicacion <= parseInt(anio)) {
-      //creo celdas
-      let fila = document.createElement("tr");
-      let celda1 = document.createElement("td");
-      let celda2 = document.createElement("td");
-      let celda3 = document.createElement("td");
-      let celda4 = document.createElement("td");
-      let celda5 = document.createElement("td");
-      let boton = document.createElement("button");
-      boton.id = "boton";
-      boton.append("Ver");
-      boton.addEventListener("click", function () {
-        crearImagen(libro); //imagen del libro
-      });
-      celda5.append(boton);
-
-      celda1.append(libro.titulo); //en la celda 1 poner el titulo del libro
-      celda2.append(libro.autor); //en la celda 2 poner el autor del libro
-      celda3.append(libro.anio_publicacion); //en la celda 3 poner el año de publicacion del libro
-      celda4.append(libro.genero); //en la celda 4 poner el genero del libro
-      fila.append(celda1); //añadir celdas a las filas
-      fila.append(celda2);
-      fila.append(celda3);
-      fila.append(celda4);
-      fila.append(celda5);
-
-      tbody.append(fila); //añadir fila al tbody
-    }else if (libro.titulo == titulo){
-      //creo celdas
-      let fila = document.createElement("tr");
-      let celda1 = document.createElement("td");
-      let celda2 = document.createElement("td");
-      let celda3 = document.createElement("td");
-      let celda4 = document.createElement("td");
-      let celda5 = document.createElement("td");
-      let boton = document.createElement("button");
-      boton.id = "boton";
-      boton.append("Ver");
-      boton.addEventListener("click", function () {
-        crearImagen(libro); //imagen del libro
-      });
-      celda5.append(boton);
-
-      celda1.append(libro.titulo); //en la celda 1 poner el titulo del libro
-      celda2.append(libro.autor); //en la celda 2 poner el autor del libro
-      celda3.append(libro.anio_publicacion); //en la celda 3 poner el año de publicacion del libro
-      celda4.append(libro.genero); //en la celda 4 poner el genero del libro
-      fila.append(celda1); //añadir celdas a las filas
-      fila.append(celda2);
-      fila.append(celda3);
-      fila.append(celda4);
-      fila.append(celda5);
-
-      tbody.append(fila); //añadir fila al tbody
-    }else if (libro.autor == autor){
-      //creo celdas
-      let fila = document.createElement("tr");
-      let celda1 = document.createElement("td");
-      let celda2 = document.createElement("td");
-      let celda3 = document.createElement("td");
-      let celda4 = document.createElement("td");
-      let celda5 = document.createElement("td");
-      let boton = document.createElement("button");
-      boton.id = "boton";
-      boton.append("Ver");
-      boton.addEventListener("click", function () {
-        crearImagen(libro); //imagen del libro
-      });
-      celda5.append(boton);
-
-      celda1.append(libro.titulo); //en la celda 1 poner el titulo del libro
-      celda2.append(libro.autor); //en la celda 2 poner el autor del libro
-      celda3.append(libro.anio_publicacion); //en la celda 3 poner el año de publicacion del libro
-      celda4.append(libro.genero); //en la celda 4 poner el genero del libro
-      fila.append(celda1); //añadir celdas a las filas
-      fila.append(celda2);
-      fila.append(celda3);
-      fila.append(celda4);
-      fila.append(celda5);
-
-      tbody.append(fila); //añadir fila al tbody
-    }else if (libro.genero == genero){
+    if (
+      (titulo === "" || libro.titulo === titulo) &&
+      (autor === "" || libro.autor===autor) &&
+      (anio === "" || libro.anio_publicacion <= parseInt(anio)) &&
+      (genero === "" || libro.genero===genero)
+    )  {
       //creo celdas
       let fila = document.createElement("tr");
       let celda1 = document.createElement("td");
