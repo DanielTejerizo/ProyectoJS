@@ -1,0 +1,17 @@
+Html con etiqueta h1, etiqueta de un dialogo, dentro de un dialogo mete un <pre>, si ponemos un /n, va a pedir que se muestre un array de objetos en una tabla, dos select y una tabla, con thead(no se toca) y un tbody(vacio con un id), un div que dentro se tiene que meter un iframe, otro div con dos botones. Un boton se ve y el otro con hidden=true.
+Al principio hay que ocultar un select y la tabla, colocar delante del select texto getElementByID("").before("").
+Dialogo con un solo <pre> sin botones para cerrar, onclick que se cierre, el segundo settimeout 2 seg
+El primer boton al pulsar la funcion hace un fetch al php que devuelve de una bdd de mysql, el resultado se mete dentro del dialogo(lo del /n), de forma modal "Showmodal"
+Crear una clase y la otra se hereda que tiene 7 atributos mas el que hereda
+Algún metodo meterá
+Crear un select que no salgan los repetidos
+Crear otro select que no salgan repetidos
+Metodo filter(investigar)
+Con el resultado des otro select creo la tabla
+Que salga un mensaje al hacer un click
+Despues de esto se crea el iframe con una url de google maps
+El seguiente boton se desoculta, al pulsar se introducen datos a la bdd
+Utilizar el sessionStorage, se hace una nueva ventana(let ventana=open(about:blank, "blank"))
+Lo añado al tbody
+Delante del input, poner la fecha del dia, un dato de antes y decirle que en cuanto cambie el valor del nombre, se cambie en la bdd (change)
+Y que cuando se introduzca, se cierre la ventana
