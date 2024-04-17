@@ -1,8 +1,8 @@
 window.onload = function () {
-  //Hasta que no haga toda la pagina
   crearCabecera();
-  elegir();
+  Enviar();
 };
+
 function crearCabecera() {
   let tabla = document.getElementById("libros");
   tabla.hidden = true; //esconder la tabla
@@ -33,19 +33,10 @@ function crearCabecera() {
   tabla.append(tbody); //metemos el tbody en la tabla
 }
 
-function elegir() {
-  
-  let botonTitulo=document.getElementById("botonTitulo");
-  let botonAutor=document.getElementById("botonAutor");
-  let botonAnio=document.getElementById("botonAnio");
-  let botonGenero=document.getElementById("botonGenero");
- 
-  botonAnio.addEventListener("click", conseguirDatos); //evento para que al hacer click
-  botonTitulo.addEventListener("click", conseguirDatos); //evento para que al hacer click
-  botonAutor.addEventListener("click", conseguirDatos); //evento para que al hacer click
-  botonGenero.addEventListener("click", conseguirDatos); //evento para que al hacer click
+function Enviar() {
+  let boton = document.getElementById("boton");
+  boton.addEventListener("click", insertarDatos);
 }
-
 
 function conseguirDatos() {
   fetch("../php/Consulta.php")
@@ -54,29 +45,42 @@ function conseguirDatos() {
       tratarDatos(data);
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.error("Error:", error);
     });
 }
 
+function insertarDatos() {
+  let anio = document.getElementById("anio").value; //valor del input
+  let titulo = document.getElementById("titulo").value; //valor del input
+  let autor = document.getElementById("autor").value; //valor del input
+  let genero = document.getElementById("genero").value; //valor del input
+  let imagen = document.getElementById("imagen").value; //valor del input
+  let datos = new FormData();
+  datos.append("titulo", titulo);
+  datos.append("autor", autor);
+  datos.append("anio_publicacion", anio);
+  datos.append("genero", genero);
+  datos.append("imagen", imagen);
+
+  fetch("../php/Insertar.php", { method: "POST", body: datos })
+    .then((response) => response.json())
+    .then((data) => {
+      tratarDatos(data);
+      conseguirDatos();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 
 function tratarDatos(datos) {
-  let anio = document.getElementById("anio").value; //valor del input
-  let titulo=document.getElementById("titulo").value; //valor del input
-  let autor=document.getElementById("autor").value; //valor del input
-  let genero=document.getElementById("genero").value; //valor del input
-  let tabla = document.getElementById("libros"); //tabla
+  let tabla = document.getElementById("libros");
   tabla.hidden = false; //mostrar tabla
   let tbody = document.getElementById("tbody"); //seleccionar el tbody
   tbody.innerHTML = ""; //limpiar
 
-  datos.libros.forEach((libro) => {
-    //forEach
-    if (
-      (titulo === "" || libro.titulo === titulo) &&
-      (autor === "" || libro.autor===autor) &&
-      (anio === "" || libro.anio_publicacion <= parseInt(anio)) &&
-      (genero === "" || libro.genero===genero)
-    )  {
+  if (datos && datos.libros) {
+    datos.libros.forEach((libro) => {
       //creo celdas
       let fila = document.createElement("tr");
       let celda1 = document.createElement("td");
@@ -103,8 +107,8 @@ function tratarDatos(datos) {
       fila.append(celda5);
 
       tbody.append(fila); //añadir fila al tbody
-    }
-  });
+    });
+  }
 }
 
 function crearImagen(libro) {

@@ -9,9 +9,9 @@ window.onload = function () {
     let enlace2 = document.createElement("a")
     let enlace3 = document.createElement("a")
     enlace1.textContent="Insertar" //texto
-    enlace1.href="#" //href
+    enlace1.href="Insertar/Insertar.html" //href
     enlace2.textContent="Borrar" //texto
-    enlace2.href="#" //href
+    enlace2.href="Borrar/Borrar.html" //href
     enlace3.textContent="Consultar" //texto
     enlace3.href="Consulta/Consulta.html" //href
 
