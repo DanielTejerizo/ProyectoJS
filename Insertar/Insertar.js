@@ -62,16 +62,22 @@ function insertarDatos() {
   datos.append("genero", genero);
   datos.append("imagen", imagen);
 
-  fetch("../php/Insertar.php", { method: "POST", body: datos })
-    .then((response) => response.json())
-    .then((data) => {
-      tratarDatos(data);
-      conseguirDatos();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  if (titulo === "" || autor === "" || anio === "" || genero === "" || imagen === "") {
+    alert("Rellena todos los campos")
+  } else {
+    fetch("../php/Insertar.php", { method: "POST", body: datos })
+      .then((response) => response.json())
+      .then((data) => {
+        tratarDatos(data);
+        conseguirDatos();
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+      alert("Datos insertados correctamente")
+  }
 }
+
 
 function tratarDatos(datos) {
   let tabla = document.getElementById("libros");
